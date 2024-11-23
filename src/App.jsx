@@ -13,8 +13,23 @@ import adOne from './assets/Adone.jpg'
 import adTwo from './assets/Adtwo.png'
 import adThree from './assets/Adthree.jpg'
 import Product from './components/Product'
+import "slick-carousel/slick/slick.css";
+import Slider from "react-slick";
+import PrevArrow from './components/PrevArrow'
+import NextArrow from './components/NextArrow'
+
 
 function App() {
+
+  var settings = {
+    
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+  };
 
 
   return (
@@ -75,8 +90,8 @@ function App() {
         <Container className={'max-w-headerContainer'}>
           <Flex className={'justify-between gap-x-96'}>
             <div className="w-[30%]">
-              <Flex className={'gap-x-2 items-center'}>
-                <PiNumberTwoBold className='text-2xl'/>
+              <Flex className={'gap-x-2'}>
+                <PiNumberTwoBold className='text-xl'/>
                 <Heading as={'h3'} text={'Two years warranty'} className={'font-dm text-[16px] text-infoText'}/>
               </Flex>
             </div>
@@ -115,10 +130,41 @@ function App() {
       {/* Ads part end */}
 
       {/* New arrivals part start */}
-      <div className="w-full bg-purple-700">
+      {/* <div className="w-full py-[135px]">
         <Container className={'max-w-headerContainer'}>
           <Flex>
-            <div className="w-[25%] bg-red-400">
+            <div className="w-[25%] relative group">
+              <Product />
+            </div>
+          </Flex>
+        </Container>
+      </div> */}
+      {/* New arrivals part end */}
+
+      {/* Slider part start */}
+      <Container className={'max-w-headerContainer'}>
+      <Slider {...settings}>
+            <div className="relative group px-3">
+              <Product />
+            </div>
+            <div className="relative group px-3">
+              <Product />
+            </div>
+            <div className="relative group px-3">
+              <Product />
+            </div>
+            <div className="relative group px-3">
+              <Product />
+            </div>
+      </Slider>
+      </Container>
+      {/* Slider part end */}
+
+      {/* New arrivals part start */}
+      <div className="w-full py-[135px]">
+        <Container className={'max-w-headerContainer'}>
+          <Flex>
+            <div className="w-[25%] relative group">
               <Product />
             </div>
           </Flex>
